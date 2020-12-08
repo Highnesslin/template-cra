@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+if (process.env.NODE_ENV === 'development') {
+  window.token = 'xxAA9577';
+}
 ReactDOM.render(
   <React.StrictMode>
     <App />
