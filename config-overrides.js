@@ -24,7 +24,13 @@ const addCustomize = () => config => {
       require('postcss-write-svg')({
         utf8: false,
       }),
-      require('postcss-viewport-units')({}),
+      require('postcss-viewport-units')({
+        filterRule: rule =>
+          rule.selector.includes('::after') &&
+          rule.selector.includes('::before') &&
+          rule.selector.includes(':after') &&
+          rule.selector.includes(':before'),
+      }),
       require('cssnano')({
         preset: 'advanced',
         autoprefixer: false,
